@@ -1,4 +1,5 @@
 
+open Stack 
 
 (* Inverting a Stack
 
