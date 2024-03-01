@@ -138,7 +138,7 @@ struct
       let new_neighbors_t = VSet.add s (VMap.find t g) in 
       g |> VMap.update s (addEdge_aux new_neighbors_s) 
         |> VMap.update t (addEdge_aux new_neighbors_t) 
-    with _ -> failwith "addEdge: edge does not exist" ;; 
+    with _ -> raise VertexDoesNotExist ;; 
         
   let vertices (g : graph) : v list  = 
     List.map fst (VMap.bindings g) 
