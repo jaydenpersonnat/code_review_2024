@@ -47,6 +47,50 @@ sig
   val graph_size : graph -> int * int (* returns number of vertices and edges in the graph *)
 end 
 
+module IntVertex : VERTEX with type t = int  = 
+struct 
+  type t = int 
+  let compare = Stdlib.compare  
+end 
+
+(* functor 
+   MakeGraph : VERTEX -> GRAPH 
+
+   package of values and functions 
+*)
+module MakeGraph (Vertex : VERTEX) : GRAPH with type v = Vertex.t = 
+  struct 
+  type v = Vertex.t 
+  type graph = (v * v list) list 
+
+  exception VertexAlreadyExists 
+  exception VertexDoesNotExist 
+  exception EdgeAlreadyExists 
+
+  let empty : graph = [] 
+
+  let addVertex (vertex : v) (g : graph) : graph = failwith "not yet implemented" ;; 
+  let addEdge _ = failwith "not yet implemented" ;; 
+  let vertices _ = failwith "not yet implemented" ;; 
+  let neighbors _ = failwith "not yet implemented" ;; 
+  let graph_size _ = failwith "not yet implemented" ;; 
+
+end ;; 
+
+(* module that represents a graph containing integers *)
+module IntGraph : GRAPH with type v = IntVertex.t = MakeGraph(IntVertex) ;; 
+
+open IntGraph ;; 
+
+let ex_graph : IntGraph.graph = IntGraph.empty ;; (* has 0 vertices and edges *)
+let ex_graph : graph = ex_graph |>  addVertex 2 |> addVertex 3 ;; (* has 2 vertices *)
+
+(* 
+  Vertex.t = int 
+  GRAPH with type v = Vertex.t = int  
+
+*)
+
 
 (* 
 Define a functor MakeGraph that takes in a module of type VERTEX and returns 
@@ -123,3 +167,5 @@ the power set of {1, 2, 3, 4} is
 4}}
 *)
 
+
+(* (v * v list) list *)
