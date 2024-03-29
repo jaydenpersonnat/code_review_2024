@@ -1,4 +1,4 @@
-open NativeLazyStreams ;;
+open NativeLazyStreams ;; 
 
 (*  Define a function (&&&) : bool Lazy.t -> bool Lazy.t -> bool.
 It should behave like a short circuit Boolean AND. That is, lb1 &&& lb2 should first force lb1.
