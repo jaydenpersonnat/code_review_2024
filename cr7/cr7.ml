@@ -41,6 +41,13 @@ should only be computed once *)
 
 let infinite_delay _ = failwith "" ;; 
 
+
+(* Define a function compute : (’a -> ’a list) -> ’a list -> ’a that takes in a
+list of computations and repeatedly returns the next computation each time the function is
+called. For example, if we have a function list [f; g; h] and [x; y; z], then this function
+should return f x, then g y, then h z, f x, and so on. *)
+let compute _ = failwith "" ;; 
+
 (* Define an ’a tree type for infinite trees. Each node in the tree can have any number of
 children *)
 
