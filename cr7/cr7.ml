@@ -6,11 +6,11 @@ value. *)
 let (&&&) _ = failwith "" ;; 
 
 (*  Define a value pow2 : int stream whose elements are the powers of two *)
+let pow2 _ = failwith "" ;; 
 
 (* Define a stream whose elements are the lowercase letters of the alphabet on repeat: a, b, c .....,
 z, a, b, c ..., z ... Hint : The chr and code function in OCaml’s Char module might be helpful *)
-
-let pow2 _ = failwith "" ;; 
+let alphabet _ = failwith "" ;;
 
 (* Suppose we have the following type:
 type flip = Heads | Tails
